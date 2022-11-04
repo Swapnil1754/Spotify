@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <span matTooltip="Home"> Spotyfy</span>
+    <a *ngIf="loggedIn" (click)="logOut()" mat-icon-button class="f">LogOut</a>
+</mat-toolbar>
+<mat-sidenav-container color="accent" style="height: 100%;">
+
+    <form color="primary" (submit)="getPlayList()" class="k">
+        <h1>All PlayLists</h1>
+        
+    
+    
+        <table border="1">
+            <tr><th>PlayListId</th> <th>PlayList Name</th><th>Song Name</th></tr>
+
+            <tr *ngFor="let l of myData">
+                <td>{{l.playListId}}</td><td>{{l.playListName}}</td><td *ngFor="let x of l.songList"><tr>{{x.songName}}</tr></td>
+            </tr>
+        </table><br><br>
+    
+    
+    
+    
+    <div style="width: 200px;display: inline;">
+       
+        <button mat-raised-button color="primary"><a routerLink="/dashboard">Go to Dashboard</a></button>
+    </div>
+    </form></mat-sidenav-container>

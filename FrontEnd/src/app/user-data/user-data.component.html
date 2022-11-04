@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary">
+    <span matTooltip="Home"> Spotyfy</span>
+</mat-toolbar>
+<mat-sidenav-container color="accent" style="height: 100%;">
+
+<form color="primary" (submit)="getAllUsers()" class="k">
+    <h3>All User</h3>
+    
+
+
+    <table border="1">
+        <tr><th>Email</th> <th>Password</th><th>User Name</th></tr>
+        <tr *ngFor="let l of data">
+            <td>{{l.email}}</td><td>{{l.password}}</td><td>{{l.userName}}</td>
+        </tr>
+    </table>
+
+
+
+
+<div style="width: 200px;display: inline;">
+    <button mat-raised-button color="primary"><a routerLink="/dashboard">Dashboard</a></button>
+</div>
+</form></mat-sidenav-container>
+
+
+

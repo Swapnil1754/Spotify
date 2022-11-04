@@ -1,0 +1,23 @@
+
+<mat-toolbar color="primary">
+    <button mat-raised-button><a routerLink="/home"> Home</a></button>
+  </mat-toolbar>
+  <mat-sidenav-container color="accent" style="height: 100%;">
+    <h2 style="margin-left: 270px;margin-top:50px">Music Player</h2>
+    <div style="margin-left: 200px;margin-top: 20px;margin-right: 200px;">
+
+      <!-- <section>
+        <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+      </section>
+      <mat-progress-spinner
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="value">
+    </mat-progress-spinner> -->
+    
+    <button mat-raised-button (click)="play()"><mat-icon>play_arrow</mat-icon></button><button mat-raised-button (click)="pause()"><mat-icon>pause_circle_outline</mat-icon></button>
+   <button mat-raised-button (click)="stop()"><mat-icon>stop</mat-icon></button><button mat-raised-button (click)="next()"><mat-icon>fast_forward</mat-icon></button></div>
+    <button mat-raised-button (click)="refresh()">Go To Dashboard</button>
+    </mat-sidenav-container>
+  

@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <button mat-raised-button><a routerLink="/home"> Home</a></button>
+    <button mat-raised-button class="f">LogOut</button>
+  </mat-toolbar><router-outlet></router-outlet>
+  <mat-sidenav-container color="accent" style="height: 100%;">
+  <div style="margin-left: 600px;margin-top: 150px;">
+  <h2>Registration Form</h2>
+  <form (submit)="registerfun()" [formGroup]="regForm">
+  
+    <div class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+  <input type="email" matInput placeholder="Enter Email" formControlName="email">
+  </mat-form-field>
+  <div *ngIf="regForm.controls['email'].hasError('required')">*Email is Required </div>
+  <div *ngIf="regForm.controls['email'].hasError('minlength')">*Email min length Required i.e 10</div>
+  <div *ngIf="regForm.controls['email'].hasError('maxlength')">*Email max length Required i.e 50</div>
+  <div *ngIf="regForm.controls['email'].hasError('custom5')">*Invalid Email</div>
+  <br><br></div>
+  
+  <div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input type="text" matInput placeholder="User Name" formControlName="userName">
+        </mat-form-field>
+        </div>
+  
+  <div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input type="password" matInput placeholder="Enter Password" formControlName="password">
+        </mat-form-field>
+        <div *ngIf="regForm.controls['password'].hasError('required')">*password is Required </div>
+        <div *ngIf="regForm.controls['password'].hasError('minlength')">*password min length Required i.e 8</div>
+        <div *ngIf="regForm.controls['password'].hasError('maxlength')">*password max length Required i.e 20</div></div>
+        <div *ngIf="regForm.controls['password'].hasError('custom')">*Invalid Password</div>
+    
+  <br><br>
+  <div style="display: flex;gap:20px" >
+  <button type="submit" [disabled]="regForm.invalid">REGISTER</button><br>
+  <button mat-raised-button><a routerLink="/login">Login</a></button></div></form></div></mat-sidenav-container>

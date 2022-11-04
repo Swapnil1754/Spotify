@@ -1,0 +1,63 @@
+<mat-toolbar color="primary">
+    <button mat-raised-button><a routerLink="/home"> Home</a></button>
+    <button mat-raised-button class="f">LogOut</button>
+  </mat-toolbar><router-outlet></router-outlet>
+  <mat-sidenav-container color="accent" style="height: 100%">
+  <div style="margin-left: 600px;margin-top: 50px;">
+  <h2>Add PlayList</h2>
+  <form [formGroup]="playForm">
+  
+    <div class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+  <input type="number" matInput placeholder="Enter PlayList Id" formControlName="playListId">
+  </mat-form-field>
+  <div *ngIf="playForm.controls['playListId'].hasError('required')">*PlayListId is Required </div>
+  <br><br></div>
+  
+  <div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input type="text" matInput placeholder="PlayList Name" formControlName="playListName">
+        </mat-form-field>
+        </div>
+  
+  <!-- <div class="example-form" formArrayName="songList">
+    <div *ngFor="let item of getControls(); let i=index" [formGroupName]="i">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input type="text" matInput placeholder="Song Name" formControlName="songName" id="task{{i}}">
+        </mat-form-field>
+        <br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <input type="text" matInput placeholder="Artist Name" formControlName="artist" id="task{{i}}">
+                </mat-form-field>
+      <br>
+        
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input type="text" matInput placeholder="Genre" formControlName="genre" id="task{{i}}">
+                </mat-form-field></div>
+                <br>
+
+
+                <table border="1" style="float: right;">
+                  <tr><th>Select Song</th>
+                  <tr *ngFor="let l of song;let i=index">
+                      <td>{{l.songName}}</td></tr>
+              </table>
+  <br>
+  <div style="display: flex;gap:20px" >
+  <button mat-raised-button (click)="addData()">Add Playlist</button>
+  <button mat-raised-button><a routerLink="/dashboard">Go Back</a></button></div></div> -->
+
+
+
+  <table border="1" style="width: 22%">
+    <tr><th>Select Song</th>
+    <tr *ngFor="let l of song;let i=index">
+        <td><mat-checkbox formArrayName="songList" [value]="l.songName" (change)="toList(l,$event)" id="task{{i}}">{{l.songName}}</mat-checkbox></td></tr>
+</table><br>
+<button mat-raised-button (click)="getData()">Add Playlist</button>
+<button mat-raised-button (click)="getback()" style="margin: 10px">Go Back</button>
+
+</form>
+</div></mat-sidenav-container>
+

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <button mat-raised-button><a routerLink="/home"> Home</a></button>
+    <a *ngIf="loggedIn" (click)="logOut()" mat-icon-button class="f">LogOut</a>
+  </mat-toolbar><router-outlet></router-outlet>
+  <mat-sidenav-container color="accent" style="height: 100%;">
+  <div style="margin-left: 600px;margin-top: 150px;">
+  <h2>Home</h2>
+  <button (click)="getAllUsers()" mat-raised-button>Get All Songs</button>
+  <button mat-raised-button><a routerLink="/dashboard">Go To Dashboard</a></button>
+  </div></mat-sidenav-container>
+

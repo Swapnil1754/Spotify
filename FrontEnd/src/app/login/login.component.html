@@ -1,0 +1,29 @@
+
+<mat-toolbar color="primary">
+    <span matTooltip="Home"> Spotyfy</span>
+</mat-toolbar>
+<mat-sidenav-container color="accent" style="height: 100%;">
+
+<form color="primary" (submit)="check1()" [formGroup]="regForm" class="k">
+    <h3>LogIn</h3>
+    <div class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+<input type="email" matInput placeholder="Enter Email" formControlName="email">
+</mat-form-field>
+<div *ngIf="regForm.controls['email'].hasError('required')">*Email is Required </div>
+<div *ngIf="regForm.controls['email'].hasError('minlength')">*Email min length Required i.e 10</div>
+<div *ngIf="regForm.controls['email'].hasError('maxlength')">*Email max length Required i.e 50</div>
+<br><br></div>
+<div class="example-form">
+<mat-form-field class="example-full-width" appearance="fill">
+    <input type="password" matInput placeholder="Enter Password" formControlName="password">
+    </mat-form-field>
+    <div *ngIf="regForm.controls['password'].hasError('required')">*password is Required </div>
+    <div *ngIf="regForm.controls['password'].hasError('minlength')">*password min length Required i.e 5</div>
+    <div *ngIf="regForm.controls['password'].hasError('maxlength')">*password max length Required i.e 20</div></div>
+<div style="width: 200px;">
+    <button mat-raised-button color="primary" type="submit" value="Login" [disabled]="regForm.invalid">Login</button>
+<button mat-raised-button color="primary" style="float:right"><a routerLink="/register">Register</a></button></div>
+</form></mat-sidenav-container>
+
+

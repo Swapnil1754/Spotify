@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+    <button mat-raised-button><a routerLink="/home"> Home</a></button>
+    <h2 style="margin-left: 650px;">Dashboard</h2>
+    <a *ngIf="loggedIn" (click)="logOut()" mat-icon-button class="f">LogOut</a>
+  </mat-toolbar><router-outlet></router-outlet>
+ <div style="background-color: rgb(114, 114, 130);"><br>
+  <div style="margin-left: 550px;">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput #message maxlength="256" placeholder="Ex. I wan't to Search..." name="searchquery" matTooltip="Search Here">
+    </mat-form-field>
+    <button mat-icon-button color="primary" selected class="b"><mat-icon color="accent" matTooltip="Search">search</mat-icon></button><br>
+  <button mat-raised-button style="margin: 20px;"><a routerLink="/spotyfyregistry">Sign Up Here</a></button>
+  <button mat-raised-button style="margin: 20px;"><a routerLink="/playlist">Add PlayList</a></button>
+  <button mat-raised-button style="margin: 20px;"><a routerLink="/getplay"> All PlayLists</a></button>
+  </div>
+
+
+
+  
+  <div class="grid-container">
+    <mat-grid-list cols="4" rowHeight="250px">
+      <mat-grid-tile *ngFor="let card of song" [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <!-- <img src="{{card.url}}"> -->
+              <app-image [image]="card.url" (click)="openDialog(card.songName)"></app-image>
+              <span class="k"><div>{{card.songName}}</div></span><br>
+              <span style="text-align: left;">{{card.artist}}</span>
+              <br>
+              <span style="text-align: left;">{{card.genre}}</span><br><br>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div></div>

@@ -1,0 +1,24 @@
+.k{
+    margin-top: 100px;margin-left: 600px;
+}
+.d{
+    width: 300px;height: 50px;
+  }
+  .f{
+    float: right;margin-left: 1000px;
+  }
+  .example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+  
